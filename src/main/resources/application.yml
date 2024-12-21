@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: oncall-prober
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+app:
+  oncallApiUrl: ${ONCALL_EXPORTER_API_URL:http://localhost:8080}
+  scrapeInterval: ${ONCALL_EXPORTER_SCRAPE_INTERVAL:30s}
+  apiKey: ${ONCALL_EXPORTER_API_KEY:prober}
+  apiUser: ${ONCALL_EXPORTER_API_USER:prober}
+  hmacAlgorithm: HmacSHA512
+
+server:
+  port: 8081
